@@ -1,0 +1,63 @@
+	<%- include("partials/header"); -%>
+		<main>
+			<div class="container">
+				<div class="heading-container">
+					<% if(isAuthenticated) { %>
+					<p class="starting-p">Welcome <%=current_user.username%><%=startingContent%></p>
+					
+					<% } else { %>
+					<p class="starting-p">Welcome <%=startingContent%></p>
+					<% } %>
+					<div class="row main-info-heading">
+						<div class="col-8 dash-container">
+							<h1 class="dash-heading">Task Dashboard</h1>
+						</div>
+						<div class="col-1 total-container total-container-heading mt-1 text-end">
+							<p class="total-heading"><small>Rewards:</small></p>
+						</div>
+						<div class="col-2 total-container total-container-amount">
+							<h4 class="total-amount">R <%=startingTotal%></h4>
+						</div>
+						<div class="col-1 total-container total-container-summary">
+							<a href="/summary"><span class="fas fa-history"></span></a>
+						</div>
+					</div>
+				</div>
+			
+				<% posts.forEach(function(post){ %>
+					<div class="row g-2">
+						<div class="col-10">
+							<div class="card shadow p-2 mb-5 bg-body rounded">
+								<div class="row g-2 card-header">
+									<div class="col-8">
+										<h5><%=post.title%></h5>
+									</div>
+									<div class="col-2 rating-scale">
+										<p class="rating-label"><small>Difficulty:</small></p>
+									</div>
+									<div class="col-2 rating-scale">
+										<% for(i=0; i < post.rating; i++) {%>
+											<span class="fas fa-tshirt checked"></span>
+										<% } %>
+									</div>
+								</div>
+								<div class="card-body">
+									<h5 class="card-title">R <%=post.earn%>.00</h5>
+									<p class="card-text"><%=post.content.substring(0, 100) + " ..."%><a href="catalog/view/post/<%=post._id%>"><em>Read More</em></a></p>
+									<p class="card-text"><small class="text-muted"><%=post.footer%></small></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-2">
+							<a id="accept" class="icon" href="catalog/post/<%=post._id%>"><span class="fas fa-check-circle fa-3x"></span></a>
+						</div>
+					</div> 
+				<% }) %>
+				<a class="btn btn-add" href="catalog/post/compose">Add Tasks</a>
+				<hr>
+				<% console.log(posts); %>
+			</div>	
+		</main>	
+	<%- include("partials/footer"); -%>
+	<%- include("partials/scripts"); -%>
+	

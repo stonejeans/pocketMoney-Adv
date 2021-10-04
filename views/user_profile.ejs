@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+<div class="container my-5">
+    <h1><%=title%></h1>
+    <p><%=user.username%></p>
+    <p><%=user.email%></p>
+    <hr>
+    <a href="/" class="btn btn-add">Update User</a>
+    <!-- <a href="<%=user.url%>/update" class="btn btn-add">Update User</a> -->
+    <a class="btn btn-secondary ms-3" href="/">Cancel</a>
+</div>
+
+<%- include('partials/footer') %>
+<%- include("partials/scripts"); -%>

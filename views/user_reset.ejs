@@ -1,0 +1,65 @@
+<%- include('partials/header') %>
+
+  <div class="container mt-3">
+    <h1><%=title%></h1>
+
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="card-body">
+
+            <!-- Makes POST request to /register route -->
+            <form method="POST" action= "<%= is_first_step ? '/users/reset' : '/users/resetfinal'%>">
+              <% if (is_first_step){ %>
+                <% console.log(is_first_step)%>
+                <% console.log(is_second_step)%>
+                <p>Please enter your username and email. If they match a user, you will be redirected to the password reset page.</p>
+                
+                <div class="form-group">
+              
+                  <label for="username">Username:</label>
+                  <input class="form-control input-title" id="username" type='text' name='username' required= "<%=is_first_step%>" value= "<%=undefined===user ? '' : user.username%>">
+                  
+                  <label for="email">Email:</label>
+                  <input class="form-control input-title" id="email" type='email' name='email' required="<%=is_first_step%>"  value= "<%=undefined===user ? '' : user.email%>">
+  
+                </div>
+              <% } else if (is_second_step){ %>
+                <% console.log(is_first_step)%>
+                <% console.log(is_second_step)%>
+                <p>Almost there. Enter your new password twice and you're good to go!</p>
+                
+                <div class="form-group">
+
+                  <label for="password">New Password:</label>
+                  <input class="form-control input-title" id="password" type='password' name='password' required="<%=is_second_step%>">
+                  
+                  <label for="password_confirm">Confirm Password:</label>
+                  <input class="form-control input-title" id="password_confirm" type='password' name='password_confirm' required="<%=is_second_step%>">
+                  
+                </div>
+                <input type="hidden" id="userid" name="userid" value="<%=user._id%>">
+                <% console.log("Ejs ID:" + user._id)%>
+
+              <% } %>
+                <button class="btn btn-add" type="submit"><%=is_first_step ? 'Next' : 'Done'%></button>
+                <!-- <a class="btn btn-secondary ms-2" href="/">Cancel</a> -->
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="error-text mt-5">
+          <% if (typeof errors !== 'undefined'){errors.forEach(function(error){%>
+            <p>ERROR: <%= error.msg %></p>
+          <% })} %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<%- include('partials/footer') %>

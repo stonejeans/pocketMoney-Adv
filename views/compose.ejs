@@ -1,0 +1,33 @@
+<%- include("partials/header"); -%>
+<div class="container">
+  <h1>Add Chore</h1>
+    <form class="" action="" method="post">
+      <div class="form-group">
+        
+        <label>Chore:</label>
+        <input class="form-control input-title" type="text" name="postTitle" required>
+        
+        <label>Reward <small>(R):</small></label>
+        <input class="form-control input-earn" type="text" name="postEarn" required>
+        
+        <label>Chore Instructions:</label>
+        <textarea class="form-control input-body" name="postBody" rows="2" cols="30" required></textarea>
+        
+        <label>Chore Rating:</label>
+        <select class="form-select input-rating" id="inputGroupSelect01" name="postRating">
+          <option selected>Choose...</option>
+          <option value="1">Rating 1: (0 min - 5 mins)</option>
+          <option value="2">Rating 2: (5 min - 15 mins)</option>
+          <option value="3">Rating 3: (15 min - 25 mins)</option>
+          <option value="4">Rating 4: (25 min - 40 mins)</option>
+          <option value="5">Rating 5: (40 min - 1 hr)</option>
+        </select>
+      </div>
+      <button class="btn btn-compose" type="submit">Add Task</button>
+      <a class="btn btn-secondary ms-3" href="/">Cancel</a>
+    </form>
+</div>
+    
+
+<%- include("partials/footer"); -%>
+<%- include("partials/scripts"); -%>

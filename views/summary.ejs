@@ -1,0 +1,67 @@
+<%- include("partials/header"); -%>
+	<div class="container">
+		<div class="heading-container">
+			<p class="starting-p"><%=summaryContent%></p>
+			<div class="row main-info-heading">
+				<div class="col-8 dash-container">
+					<h1 class="dash-heading">History:</h1>
+				</div>
+				<div class="col-2 total-container total-container-heading mt-1 text-end">
+					<p class="total-heading-table"><small>Total Earned:</small></p>
+				</div>
+				<div class="col-2 total-container total-container-amount text-center">
+					<h4 class="m-1">R <%=startingTotal%></h4>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="container">
+				<div class="table-responsive">
+					<table class="table table-striped custom-table">
+						<thead>
+							<tr>
+								<th scope="col">Chore</th>
+								<th scope="col">Criteria</th>
+								<th scope="col">Earnings</th>
+								<th scope="col">Rating</th>
+								<th scope="col">Status</th>
+								<!-- <th scope="col"></th> -->
+							</tr>
+						</thead>
+						<tbody>
+							<% posts.forEach(function(post){ %>
+							<tr scope="row">
+								<td>
+									<a href="view/post/<%=post._id%>"><%=post.title%></a>
+								</td>
+								<td class="pl-0">
+									<small><%=post.content%></small>
+								</td>
+								<td>
+									R <%=post.earn%>.00<small> (ZAR)</small>
+									<!-- <small class="d-block">ZAR - (South African Rands)</small> -->
+								</td>
+								<td><%=post.rating%></td>
+								<td><%=post.status%></td>
+								<!-- <td><a href="" class="more">Details</a></td> -->
+							</tr>
+							<% }) %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="row my-2 btn-container">
+			<div class="col-12">
+				<a id="settle" class="btn btn-add" href="./summary/due">Settle Balance </a>
+				<!-- <a id="settle" class="btn btn-add" href="./summary/due">Settle Balance </a> -->
+				<a class="btn btn-secondary ms-1" href="/">Go Back</a>
+			</div> 
+		</div>
+    <% console.log(posts); %>
+	</div>
+<%- include("partials/footer"); -%>
+<%- include("partials/scripts"); -%>
+

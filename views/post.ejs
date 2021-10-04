@@ -1,0 +1,28 @@
+<%- include("partials/header"); -%>
+    <div class="container">
+        <div class="my-2">
+            <h4>Chore:</h4>
+            <h1 class="post-heading"><%=title%></h1>
+            <p><small><%=content%></small></p>
+        </div>
+        <div class="my-5">
+            <h4>You can possibly earn:</h4>
+            <h1 class="post-heading">R <%=earn%></h1>
+        </div>
+        <p>Difficulty rating of: <%=rating%></p>
+        <p class="post-footer">Created: <%=footer%></p>
+    
+    
+        <div class="row mt-5 btn-container">
+            <div class="col-sm-12">
+                <a id="approve" class="btn btn-success" href="<%=postIdent%>/update">COMPLETED <span class="fas fa-check-circle"></span></a>
+    
+                <a id="decline" class="btn btn-danger" href="/">CANCEL <span class="fas fa-times-circle"></span></a>
+            </div>
+        </div>
+    </div>
+
+    <% console.log("The post ID is " + postIdent); %>
+<%- include("partials/footer"); -%>
+<%- include("partials/scripts"); -%>
+

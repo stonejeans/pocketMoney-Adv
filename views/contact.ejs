@@ -1,0 +1,52 @@
+<%- include("partials/header"); -%>
+	<h1>Contact Us</h1>
+	<!-- <p><%=contactContent%></p>
+	<hr> -->
+	<div class="container contact-container">
+		<form action="">
+	  
+			<label for="fname">First Name</label>
+			<input type="text" id="fname" name="firstname" placeholder="Your name..">
+		
+			<label for="lname">Last Name</label>
+			<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" placeholder="Your email address..">
+		
+			<!-- <label for="country">Country</label>
+			<select id="country" name="country">
+				<option value="australia">Australia</option>
+				<option value="canada">Canada</option>
+				<option value="usa">USA</option>
+			</select> -->
+		
+			<label for="subject">Subject</label>
+			<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+		
+			<!-- <input type="submit" value="Submit"> -->
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-compose" data-bs-toggle="modal" data-bs-target="#exampleModal" value="Submit">Submit</button>
+			
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Success!</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<p>One of our representatives will contact you shortly.</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	  </div>
+<%- include("partials/footer"); -%>

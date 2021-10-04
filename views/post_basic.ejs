@@ -1,0 +1,22 @@
+<%- include("partials/header"); -%>
+    <div class="container">
+        <div class="my-2">
+            <h4>Chore:</h4>
+            <h1 class="post-heading"><%=title%></h1>
+            <p><small><%=content%></small></p>
+        </div>
+        <div class="my-5">
+            <h4>You can possibly earn:</h4>
+            <h1 class="post-heading">R <%=earn%></h1>
+        </div>
+        <p>Difficulty rating of: <%=rating%></p>
+        <p class="post-footer">Created: <%=footer%></p>
+    
+        <div class="row mt-5 btn-container">
+            <div class="col-2">
+                <a id="approve" class="btn btn-back" href="/">Close</a>
+            </div> 
+        </div>
+    </div>
+<%- include("partials/footer"); -%>
+<%- include("partials/scripts"); -%>
