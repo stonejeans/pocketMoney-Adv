@@ -122,13 +122,10 @@ This is a [Node.js](https://nodejs.org/en/) module available through the
 
 Before installing, [download and install Node.js](https://nodejs.org/en/download/).
 
-If this is a brand new project, make sure to create a `package.json` first with
-the [`npm init` command](https://docs.npmjs.com/creating-a-package-json-file).
-
 Installation is done using the
 [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally) (See Project Setup):
 
-Install [mongoDB](https://docs.mongodb.com/manual/installation/) locally.
+Install and setup [mongoDB](https://docs.mongodb.com/manual/installation/) locally.
 
 > **Note:** The demonstration web application uses a default MongoDb database hosted on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Install MongoDB locally or sign up for an account to run your own code experiments.
 
