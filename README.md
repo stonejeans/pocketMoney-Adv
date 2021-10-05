@@ -10,13 +10,14 @@ Welcome to "Pocket Money - ADV", an Express.js web application with the intent t
 ----
 
 - [Overview](#overview)
-  - [Features](#screenshot)
-  - [First Look](#screenshot)
+  - [Features](#features)
+  - [First Look](#first-look)
   - [Links](#links)
-- [My process](#my-process)
+- [My Process](#my-process)
   - [Built with](#built-with)
-- [Setup guide](#quick-start)
+- [Setup Guide](#setup-guide)
   - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
   - [Project setup](#setup-guide)
   - [Useful resources](#useful-resources)
 - [Roadmap](#roadmap)
@@ -82,7 +83,7 @@ Task Dashboard
 ----
 
 
-## My process
+## My Process
 
 ### Built with:
 
@@ -108,21 +109,26 @@ Task Dashboard
 
 ### Prerequisites:
 
-- [npm](https://www.npmjs.com/get-npm)
-- [Node.js](https://nodejs.org/en/download/)
+- [Node.js](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/)
 - [mongoDB](https://mongodb.com/)
 
 <br>
 
-To get this project up and running locally on your computer:
+### Installation:
 
-1. Set up a [Node.js](https://wiki.developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/development_environment) development environment.
-2. Download and install [npm](https://www.npmjs.com/get-npm).
-3. Install [mongoDB](https://docs.mongodb.com/manual/installation/) locally.
-4. Navigate to the main page of this repository and clone or download the project files. 
-5. Set up and run project.
+This is a [Node.js](https://nodejs.org/en/) module available through the
+[npm registry](https://www.npmjs.com/).
 
-<br>
+Before installing, [download and install Node.js](https://nodejs.org/en/download/).
+
+If this is a brand new project, make sure to create a `package.json` first with
+the [`npm init` command](https://docs.npmjs.com/creating-a-package-json-file).
+
+Installation is done using the
+[`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally) (See Project Setup):
+
+Install [mongoDB](https://docs.mongodb.com/manual/installation/) locally.
 
 > **Note:** The demonstration web application uses a default MongoDb database hosted on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Install MongoDB locally or sign up for an account to run your own code experiments.
 
