@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 // Render guide page.
 exports.guideIndex = function(req, res) {
     const guideStartingContent2 = "You can add as many task as you like by pressing the 'Add Task' button. Keep an eye on the 'Rewards' field to keep track of all completed and approved tasks.";

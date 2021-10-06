@@ -1,9 +1,11 @@
-var { body, validationResult } = require('express-validator');
-var passport = require('passport');
-var async = require('async');
+/*jshint esversion: 6 */
+
+const { body, validationResult } = require('express-validator');
+const passport = require('passport');
+const async = require('async');
 
 // Require user model
-var User = require('../models/user');
+const User = require('../models/user');
 
 // Display detail page for a specific user.
 exports.user_profile = [
@@ -35,7 +37,7 @@ exports.login_get = function(req, res, next) {
   async.parallel({
       user: function(callback) {
           User.find(callback);
-      },
+      }
       // isAlreadyLoggedIn,
   }, function(err, results) {
       if (err) { 
@@ -43,7 +45,8 @@ exports.login_get = function(req, res, next) {
       }
       isAlreadyLoggedIn,
       res.render('user_login', {
-        title: 'Login', user :results.user
+        title: 'Login', 
+        user :results.user
         // errors: messages.length > 0 ? messages : null
       });
   });
@@ -75,17 +78,20 @@ exports.register_get = function(req, res, next) {
   async.parallel({
       user: function(callback) {
           User.find(callback);
-      },
-      // isAlreadyLoggedIn,
-  }, function(err, results) {
+      }
+    }, 
+    function(err, results) {
       if (err) { 
         return next(err); 
       }
       isAlreadyLoggedIn,
+      
       res.render('user_form', { 
-        title: 'Create User', user : results.user 
+        title: 'Create User', 
+        user : results.user 
       });
-  });
+    }
+  );
 };
 
 // Handle register on POST.

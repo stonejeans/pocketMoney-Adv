@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
@@ -5,7 +7,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-var auth = require('./lib/auth');
+const auth = require('./lib/auth');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog');
@@ -19,22 +21,22 @@ const app = express();
 const mongoose = require('mongoose');
 
 // Set up mongoose connection with url to externalhost
-const dev_db_url = 'mongodb+srv://'+process.env.API_KEY_MONGO+'?retryWrites=true&w=majority';
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
-mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
+// const dev_db_url = 'mongodb+srv://'+process.env.API_KEY_MONGO+'?retryWrites=true&w=majority';
+// const mongoDB = process.env.MONGODB_URI || dev_db_url;
+// mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
 //Set connection to mongoDB using localhost:27017
-// mongoose.connect("mongodb://localhost:27017/pocketMoneyDB", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb://localhost:27017/pocketMoneyDB", {useNewUrlParser: true, useUnifiedTopology: true});
 
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Authentication Packages
-var session = require('express-session');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var User = require('./models/user');
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const User = require('./models/user');
 
 // Configure the local strategy for use by Passport.
 passport.use(

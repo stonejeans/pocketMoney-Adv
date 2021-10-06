@@ -1,18 +1,20 @@
-let Post = require('../models/post');
+/*jshint esversion: 6 */
+
+const Post = require('../models/post');
 const ObjectId = require('mongoose').Types.ObjectId;
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 //Async function that sums up values within the documents in the mongoDB
-exports.summaryIndex = function(req, res) {
+exports.summaryIndex = function(req, res, summaryIdString) {
 
   let summaryObjectId = ObjectId(req.user).id;
-  let queryDefaultId = '0155710c1d24f874965df210';
+  const queryDefaultId = '0155710c1d24f874965df210';
 
   // Conditional handling of potential undefined or null user ids
   if (summaryObjectId == null || summaryObjectId == undefined){
-    var summaryIdString = queryDefaultId.toString();
+    summaryIdString = queryDefaultId.toString();
   }else{
-    var summaryIdString = summaryObjectId.toString();
+    summaryIdString = summaryObjectId.toString();
     let checks3 = mongoose.isValidObjectId(summaryIdString);
     if (checks3 == false){
       summaryIdString = queryDefaultId.toString();
@@ -33,12 +35,12 @@ exports.summaryIndex = function(req, res) {
     }
   ])
 
-  .exec(function (e,results) {
+  .exec(function (e,results, amount) {
     if (results == null|| results == 0) {
-      var amount = 0;
+      amount = 0;
     }else{
-      var amount = results[0].totalAmount;    
-    };
+      amount = results[0].totalAmount;    
+    }
 
     const summaryStartingContent = "Here you can find a summary of all active tasks and task history.";
     const userLoggedIn = req.user;
@@ -59,7 +61,6 @@ exports.post_update_due = function(req, res, next) {
 
   Post.updateMany(requestedPostId)
   .exec(function (e,pocketDBDocs) {
-    const requestedPostId = req.params.id;
     let summaryObjectId = ObjectId(req.user).id;
     let summaryIdString = summaryObjectId.toString();
     let dueQuery = {"user_id" : ObjectId(summaryIdString), status: "Completed"};
